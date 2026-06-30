@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cpip - Cloud-Powered Package Intelligence for Android Termux</title>
+    <meta name="description" content="Bring desktop-class Python performance and ML capabilities to Android Termux with cpip. Zero-config cloud offloading, package virtualization, and instant GPU execution.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Gradient Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Header Navigation -->
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-cloud-arrow-up logo-icon"></i>
+                <span>cpip</span>
+                <span class="badge">v0.1.1</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#overview"><i class="fa-solid fa-compass"></i> Overview</a>
+                <a href="#features"><i class="fa-solid fa-star"></i> Features</a>
+                <a href="#installation"><i class="fa-solid fa-download"></i> Setup</a>
+                <a href="#usage"><i class="fa-solid fa-terminal"></i> Usage</a>
+                <a href="#architecture"><i class="fa-solid fa-sitemap"></i> Architecture</a>
+                <a href="#socials"><i class="fa-solid fa-envelope"></i> Contact</a>
+            </nav>
+            <a href="https://github.com/yashab-cyber/cpip" target="_blank" class="btn btn-secondary nav-btn">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="tagline">⚡ Android Development Unleashed</div>
+                <h1 class="hero-title">
+                    Bring Desktop-Class <span class="gradient-text">Python Performance</span> to Termux
+                </h1>
+                <p class="hero-desc">
+                    Failing native compilations? Extreme memory limits? No local GPU? <strong class="highlight-text">cpip</strong> virtualizes heavy packages dynamically and offloads resource-heavy computations to cloud GPU runtimes over JSON-RPC WebSockets.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#installation" class="btn btn-primary">
+                        <i class="fa-solid fa-rocket"></i> Get Started
+                    </a>
+                    <a href="#usage" class="btn btn-secondary">
+                        <i class="fa-solid fa-circle-play"></i> View Usage
+                    </a>
+                </div>
+                <div class="version-meta">
+                    <span><i class="fa-solid fa-shield-halved"></i> Zero-Config Cloud Bridge</span>
+                    <span><i class="fa-solid fa-bolt"></i> Hybrid Execution Engine</span>
+                </div>
+            </div>
+            
+            <!-- Hero Terminal -->
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="term-btn close"></span>
+                        <span class="term-btn minimize"></span>
+                        <span class="term-btn maximize"></span>
+                    </div>
+                    <div class="terminal-title">yashab@termux:~</div>
+                    <div class="terminal-tab">interactive shell</div>
+                </div>
+                <div class="terminal-body font-fira">
+                    <div class="terminal-line"><span class="prompt">$</span> cpip shell</div>
+                    <div class="terminal-output text-dim">
+                        [bold cyan]<br>
+                        &nbsp;&nbsp;&nbsp;██████╗██████╗ ██╗██████╗<br>
+                        &nbsp;&nbsp;██╔════╝██╔══██╗██║██╔══██╗<br>
+                        &nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp; ██████╔╝██║██████╔╝<br>
+                        &nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp; ██╔═══╝ ██║██╔═══╝<br>
+                        &nbsp;&nbsp;╚██████╗██║&nbsp;&nbsp;&nbsp;&nbsp; ██║██║<br>
+                        &nbsp;&nbsp; ╚═════╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp; ╚═╝╚═╝<br>
+                        [/bold cyan]<br>
+                        <span class="text-success">cpip runtime active — cloud packages available transparently</span><br>
+                        Type 'exit()' or Ctrl+D to quit
+                    </div>
+                    <div class="terminal-line"><span class="prompt">>>></span> import torch</div>
+                    <div class="terminal-output text-success">[cpip] Dynamically proxied 'torch' to Cloud GPU (NVIDIA A100)</div>
+                    <div class="terminal-line"><span class="prompt">>>></span> x = torch.randn(1000, 1000).cuda()</div>
+                    <div class="terminal-line"><span class="prompt">>>></span> print(x.mean())</div>
+                    <div class="terminal-output text-bold">tensor(0.0007, device='cuda:0')</div>
+                    <div class="terminal-line cursor"><span class="prompt">>>></span> <span class="blink">|</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Statistics -->
+    <section class="stats-section" id="overview">
+        <div class="container stats-grid">
+            <div class="stat-card">
+                <h3>95%</h3>
+                <p>Storage Savings via Layered Virtualization</p>
+            </div>
+            <div class="stat-card">
+                <h3>10x+</h3>
+                <p>Execution speedup for GPU-based ML inference</p>
+            </div>
+            <div class="stat-card">
+                <h3>Zero</h3>
+                <p>Native compilation errors on client devices</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Transparent integration with standard Python</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Built for Modern <span class="gradient-text">Mobile Workflows</span></h2>
+                <p class="section-subtitle">A collection of cloud-assisted virtualization services designed to break hardware barriers.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-server"></i></div>
+                    <h3>Transparent Cloud Execution</h3>
+                    <p>Execute imports like <code>import torch</code> normally. cpip handles parameters serialization, dynamic WebSocket routing, and brings results back to Termux seamlessly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Package Virtualization</h3>
+                    <p>Decomposes heavy libraries into content-addressed <code>tar.gz</code> chunks, lazy loading only what you access, dynamic-linking with <code>patchelf</code>.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>On-Demand Cross-Compilation</h3>
+                    <p>Missing an Android wheel? The backend automatically launches a Docker build farm using Android NDK toolchains to compile and sign wheels on the fly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Zero-Trust Sandboxing</h3>
+                    <p>All cloud executions run in Docker containers with limited capability drops, strict read-only rootfilesystems, and tight custom seccomp profiles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3>AI Agent Ready</h3>
+                    <p>Exposes cpip tools directly to LLM agents. Features ModelRouter to offload calculations depending on local device memory capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-browser"></i></div>
+                    <h3>Cloud-Proxied Browsers</h3>
+                    <p>Automate scraping or QA with preconfigured Playwright environments in the cloud. Screenshot and retrieve pages natively from Termux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation & Setup -->
+    <section class="setup-section" id="installation">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick <span class="gradient-text">Start Guide</span></h2>
+                <p class="section-subtitle">Set up the client in Termux or host your own backend server on bare-metal or Docker.</p>
+            </div>
+
+            <!-- Setup Tabs -->
+            <div class="setup-container">
+                <div class="setup-tabs">
+                    <button class="tab-btn active" onclick="switchSetup('client')"><i class="fa-solid fa-mobile-screen"></i> Client (Termux)</button>
+                    <button class="tab-btn" onclick="switchSetup('server-docker')"><i class="fa-brands fa-docker"></i> Server (Docker)</button>
+                    <button class="tab-btn" onclick="switchSetup('server-bare')"><i class="fa-solid fa-server"></i> Server (Bare-Metal)</button>
+                </div>
+                
+                <div class="setup-panes">
+                    <!-- Client Setup -->
+                    <div class="setup-pane active" id="pane-client">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Install Python and Git inside Termux</h4>
+                                    <pre><code>pkg update && pkg install python git</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Clone the cpip repository and install</h4>
+                                    <pre><code>git clone https://github.com/yashab-cyber/cpip.git
+cd cpip
+pip install -e .[client]</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Initialize Config and Login</h4>
+                                    <pre><code>cpip config --init
+cpip login</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Verify Network Connection</h4>
+                                    <pre><code>cpip doctor</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Server Setup (Docker) -->
+                    <div class="setup-pane" id="pane-server-docker">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Clone repository on target server</h4>
+                                    <pre><code>git clone https://github.com/yashab-cyber/cpip.git
+cd cpip</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Create environment configuration <code>.env</code></h4>
+                                    <pre><code>JWT_SECRET=your_super_secret_key_here
+CPIP_DEBUG=false</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Launch Docker Compose cluster</h4>
+                                    <pre><code>make docker-up</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Point Termux Client to server IP</h4>
+                                    <pre><code>cpip config --api-url http://your-server-ip:8000</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Server Setup (Bare-Metal) -->
+                    <div class="setup-pane" id="pane-server-bare">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Install Ubuntu/Debian native dependencies</h4>
+                                    <pre><code>sudo apt-get update
+sudo apt-get install -y python3 python3-pip python3-venv git build-essential redis-server</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Create virtual environment & Install Server</h4>
+                                    <pre><code>git clone https://github.com/yashab-cyber/cpip.git
+cd cpip
+python3 -m venv venv
+source venv/bin/activate
+pip install -e .[server]</code></pre>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Configure server variables and Start Monolith</h4>
+                                    <pre><code>export CPIP_HOST=0.0.0.0
+export CPIP_PORT=8000
+export CPIP_DEBUG=true
+export DATABASE_URL=sqlite+aiosqlite:///./cpip.db
+
+uvicorn server.app:app --host 0.0.0.0 --port 8000 --workers 4</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Details -->
+    <section class="usage-section" id="usage">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Command Line & <span class="gradient-text">API Usage</span></h2>
+                <p class="section-subtitle">Interact with the CLI, daemon background sync, and remote agent capabilities.</p>
+            </div>
+
+            <div class="usage-grid">
+                <!-- CLI Commands -->
+                <div class="usage-card">
+                    <h3><i class="fa-solid fa-terminal"></i> CLI Operations</h3>
+                    <div class="command-group">
+                        <div class="command-desc">Install packages with Android wheels:</div>
+                        <div class="command-code"><code>cpip install requests pandas</code></div>
+                    </div>
+                    <div class="command-group">
+                        <div class="command-desc">Force remote cloud execution for torch:</div>
+                        <div class="command-code"><code>cpip install --cloud torch</code></div>
+                    </div>
+                    <div class="command-group">
+                        <div class="command-desc">Manage the WebSocket sync background daemon:</div>
+                        <div class="command-code"><code>cpip daemon start
+cpip daemon status
+cpip daemon stop</code></div>
+                    </div>
+                    <div class="command-group">
+                        <div class="command-desc">Check system statistics & connection health:</div>
+                        <div class="command-code"><code>cpip doctor
+cpip runtime</code></div>
+                    </div>
+                </div>
+
+                <!-- API & Code usage -->
+                <div class="usage-card">
+                    <h3><i class="fa-solid fa-code"></i> Python API Integration</h3>
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <span class="editor-dot red"></span>
+                            <span class="editor-dot yellow"></span>
+                            <span class="editor-dot green"></span>
+                            <span class="editor-title">agent_example.py</span>
+                        </div>
+                        <pre class="editor-body"><code><span class="comment"># Transparently offload browser automation to cloud</span>
+<span class="keyword">from</span> agent.browser <span class="keyword">import</span> browser_agent
+<span class="keyword">import</span> asyncio
+
+<span class="keyword">async def</span> <span class="fun">main</span>():
+    <span class="comment"># Playwright runs inside sandboxed cloud container</span>
+    result = <span class="keyword">await</span> browser_agent.navigate(<span class="str">"https://github.com"</span>)
+    <span class="fun">print</span>(result[<span class="str">"html"</span>][:100])
+
+asyncio.run(main())</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture Graph -->
+    <section class="architecture-section" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">System <span class="gradient-text">Architecture Flow</span></h2>
+                <p class="section-subtitle">See how cpip manages importing, compiling, and running code transparently.</p>
+            </div>
+
+            <!-- Architectural Map -->
+            <div class="arch-map">
+                <div class="arch-box client-box">
+                    <div class="box-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h4>Android Client (Termux)</h4>
+                    <ul>
+                        <li>Interceptors (<code>sys.meta_path</code>)</li>
+                        <li>SQLite LRU Caching</li>
+                        <li>Background Sync Daemon</li>
+                    </ul>
+                </div>
+                
+                <div class="arch-arrow">
+                    <div class="arrow-text">Persistent WebSocket<br>(JSON-RPC 2.0)</div>
+                    <i class="fa-solid fa-right-left"></i>
+                </div>
+                
+                <div class="arch-box server-box">
+                    <div class="box-icon"><i class="fa-solid fa-server"></i></div>
+                    <h4>FastAPI Cloud Server</h4>
+                    <ul>
+                        <li>JWT Authentication</li>
+                        <li>Build Queue (NDK cross-compilation)</li>
+                        <li>Docker-isolated GPU/Browser runtimes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Socials, Donation, Footer -->
+    <footer class="footer-section" id="socials">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#" class="logo footer-logo">
+                    <i class="fa-solid fa-cloud-arrow-up logo-icon"></i>
+                    <span>cpip</span>
+                </a>
+                <p>Cloud-Powered Package Intelligence for Android Termux. Bring desktop-class Python performance and ML capabilities to mobile environments.</p>
+                <div class="copyright">&copy; 2026 cpip authors. MIT License.</div>
+            </div>
+            
+            <div class="footer-right">
+                <div class="footer-col">
+                    <h4>Author Socials</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/yashabcyber" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram (@yashabcyber)</a></li>
+                        <li><a href="https://x.com/Yashab_cyber" target="_blank"><i class="fa-brands fa-x-twitter"></i> X / Twitter (@Yashab_cyber)</a></li>
+                        <li><a href="https://www.linkedin.com/in/yashab-alam" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn (Yashab Alam)</a></li>
+                        <li><a href="https://www.threads.net/@yashabcyber" target="_blank"><i class="fa-solid fa-at"></i> Threads (@yashabcyber)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Donations & Support</h4>
+                    <p class="donate-desc">Support hosting servers and builders:</p>
+                    <ul class="donate-links">
+                        <li><i class="fa-solid fa-envelope"></i> yashabalam9@gmail.com</li>
+                        <li><i class="fa-solid fa-envelope"></i> yashabalam707@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script -->
+    <script>
+        function switchSetup(tabName) {
+            // Deactivate all tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Deactivate all panes
+            document.querySelectorAll('.setup-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+
+            // Activate chosen tab
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.outerHTML.includes(tabName));
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Activate chosen pane
+            const paneMap = {
+                'client': 'pane-client',
+                'server-docker': 'pane-server-docker',
+                'server-bare': 'pane-server-bare'
+            };
+            const targetPaneId = paneMap[tabName] || 'pane-client';
+            document.getElementById(targetPaneId).classList.add('active');
+        }
+        
+        // Sticky Header scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        });
+    </script>
+</body>
+</html>
