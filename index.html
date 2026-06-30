@@ -38,10 +38,18 @@
                 <a href="#usage"><i class="fa-solid fa-terminal"></i> Usage</a>
                 <a href="#architecture"><i class="fa-solid fa-sitemap"></i> Architecture</a>
                 <a href="#socials"><i class="fa-solid fa-envelope"></i> Contact</a>
+                <a href="https://github.com/yashab-cyber/cpip" target="_blank" class="btn btn-secondary nav-btn mobile-github">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
             </nav>
-            <a href="https://github.com/yashab-cyber/cpip" target="_blank" class="btn btn-secondary nav-btn">
-                <i class="fa-brands fa-github"></i> GitHub
-            </a>
+            <div class="nav-right-actions">
+                <a href="https://github.com/yashab-cyber/cpip" target="_blank" class="btn btn-secondary nav-btn desktop-github">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -460,6 +468,28 @@ asyncio.run(main())</code></pre>
             document.getElementById(targetPaneId).classList.add('active');
         }
         
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
+
         // Sticky Header scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');

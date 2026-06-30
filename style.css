@@ -207,9 +207,25 @@ header.sticky {
     transform: translateY(-2px);
 }
 
-.nav-btn {
-    padding: 8px 20px;
-    font-size: 0.85rem;
+/* Navigation actions & mobile toggle */
+.nav-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mobile-github {
+    display: none !important;
 }
 
 /* Hero Section */
@@ -909,8 +925,39 @@ header.sticky {
 }
 
 @media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .desktop-github {
+        display: none !important;
+    }
+
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: rgba(6, 9, 19, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid var(--border-color);
+        padding: 100px 40px 40px;
+        gap: 28px;
+        transition: var(--transition);
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .mobile-github {
+        display: inline-flex !important;
+        width: 100%;
+        margin-top: 20px;
     }
     
     .hero-title {
