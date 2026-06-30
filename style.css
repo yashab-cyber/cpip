@@ -261,7 +261,7 @@ header.sticky {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
     line-height: 1.15;
     font-weight: 800;
     letter-spacing: -1.5px;
@@ -986,5 +986,52 @@ header.sticky {
     
     .footer-right {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .setup-tabs {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        border-bottom: none;
+        border-left: 2px solid transparent;
+        padding: 14px 20px;
+        width: 100%;
+        text-align: left;
+        justify-content: flex-start;
+    }
+    
+    .tab-btn.active {
+        border-left-color: var(--accent-orange);
+        background-color: rgba(255, 111, 60, 0.03);
+    }
+    
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-ctas .btn {
+        width: 100%;
+    }
+    
+    .terminal-body {
+        height: 320px;
+        padding: 16px;
+        font-size: 0.8rem;
+    }
+    
+    .stats-section {
+        padding: 40px 0;
+    }
+    
+    .feature-card {
+        padding: 24px;
+    }
+    
+    .logo span {
+        font-size: 1.25rem;
     }
 }
